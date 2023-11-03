@@ -13,7 +13,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import javax.swing.JButton;
 
-public class telamenu {
+public class telaMenu {
 
 	private JFrame frame;
 
@@ -24,7 +24,7 @@ public class telamenu {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					telamenu window = new telamenu();
+					telaMenu window = new telaMenu();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,7 +36,7 @@ public class telamenu {
 	/**
 	 * Create the application.
 	 */
-	public telamenu() {
+	public telaMenu() {
 		initialize();
 	}
 
