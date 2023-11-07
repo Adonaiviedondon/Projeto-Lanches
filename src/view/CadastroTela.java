@@ -8,6 +8,9 @@ import javax.swing.SwingConstants;
 
 import java.awt.Font;
 import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class CadastroTela {
 
@@ -17,6 +20,8 @@ public class CadastroTela {
 	private JTextField textField_1;
 	private JLabel lblNewLabel_3;
 	private JTextField textField_2;
+	private JButton btnNewButton;
+	private JButton btnNewButton_1;
 
 	/**
 	 * Launch the application.
@@ -46,7 +51,7 @@ public class CadastroTela {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 600, 500);
+		frame.setBounds(100, 100, 600, 365);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -85,5 +90,19 @@ public class CadastroTela {
 		textField_2.setBounds(243, 201, 293, 26);
 		frame.getContentPane().add(textField_2);
 		textField_2.setColumns(10);
+		
+		btnNewButton = new JButton("Cadastrar Funcionario");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton.setBounds(62, 270, 199, 34);
+		frame.getContentPane().add(btnNewButton);
+		
+		btnNewButton_1 = new JButton("Remover Funcionario");
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnNewButton_1.setBounds(297, 269, 199, 36);
+		frame.getContentPane().add(btnNewButton_1);
 	}
 }
