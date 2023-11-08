@@ -102,13 +102,14 @@ public class LoginTela {
 				if (username.isEmpty() || senha.isEmpty()) {
 					mensagemtxt.setText("há campos vazios preencha todos por favor");
 				} else if (validarCredenciais(username, senha)) {
-					JOptionPane.showMessageDialog(frame, "Login bem-sucedido!");
+					TipoUsuario tipoUsuario = new TipoUsuario();
+					TipoUsuario.setVisible(true);
 
 				} else {
 					mensagemtxt.setText("login ou usuario incorretos preencha novamente");
 				}
 
-				textField_1.setText("");
+				
 			}
 		});
 	}
