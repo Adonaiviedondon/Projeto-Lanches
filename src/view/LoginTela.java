@@ -11,7 +11,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AdministradorTela {
+public class LoginTela {
 
 	private JFrame frame;
 	private JTextField textField;
@@ -27,7 +27,7 @@ public class AdministradorTela {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AdministradorTela window = new AdministradorTela();
+					LoginTela window = new LoginTela();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,7 +39,7 @@ public class AdministradorTela {
 	/**
 	 * Create the application.
 	 */
-	public AdministradorTela() {
+	public LoginTela() {
 		initialize();
 	}
 
@@ -89,6 +89,10 @@ public class AdministradorTela {
 		textField_1.setBounds(24, 231, 320, 29);
 		frame.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
+		
+		JLabel mensagemtxt = new JLabel("");
+		mensagemtxt.setBounds(24, 260, 441, 24);
+		frame.getContentPane().add(mensagemtxt);
 
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -96,12 +100,12 @@ public class AdministradorTela {
 				String senha = textField_1.getText();
 
 				if (username.isEmpty() || senha.isEmpty()) {
-					JOptionPane.showMessageDialog(frame, "Existe campos vazios.");
+					mensagemtxt.setText("há campos vazios preencha todos por favor");
 				} else if (validarCredenciais(username, senha)) {
 					JOptionPane.showMessageDialog(frame, "Login bem-sucedido!");
 
 				} else {
-					JOptionPane.showMessageDialog(frame, "nome de usuario ou senha incorretos");
+					mensagemtxt.setText("login ou usuario incorretos preencha novamente");
 				}
 
 				textField_1.setText("");

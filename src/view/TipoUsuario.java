@@ -71,4 +71,9 @@ public class TipoUsuario {
 		frame.getContentPane().add(btnNewButton_1);
 	}
 
+	public static void setVisible(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
