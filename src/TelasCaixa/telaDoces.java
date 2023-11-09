@@ -9,6 +9,10 @@ import javax.swing.JTextPane;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JSpinner;
+import java.awt.Panel;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
 
 public class telaDoces {
 
@@ -44,18 +48,6 @@ public class telaDoces {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(255, 207, 227));
 		frame.getContentPane().setLayout(null);
-		
-		JPanel panel = new JPanel();
-		panel.setBounds(68, 37, 129, 111);
-		frame.getContentPane().add(panel);
-		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(295, 37, 129, 111);
-		frame.getContentPane().add(panel_2);
-		
-		JPanel panel_1_1_1 = new JPanel();
-		panel_1_1_1.setBounds(524, 37, 129, 111);
-		frame.getContentPane().add(panel_1_1_1);
 		
 		JTextPane txtpnGsgs = new JTextPane();
 		txtpnGsgs.setText("  bolo:\r\nR$ 5,00\r\n");
@@ -162,8 +154,26 @@ public class telaDoces {
 		JSpinner spinner_8 = new JSpinner();
 		spinner_8.setBounds(634, 257, 38, 27);
 		frame.getContentPane().add(spinner_8);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Niedl\\OneDrive\\Documentos\\GitHub\\Projeto-Lanches\\imagens\\bolo.jpg"));
+		lblNewLabel.setBounds(64, 51, 129, 86);
+		frame.getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Niedl\\OneDrive\\Documentos\\GitHub\\Projeto-Lanches\\imagens\\pudim.jpg"));
+		lblNewLabel_1.setBounds(296, 51, 129, 86);
+		frame.getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\Niedl\\OneDrive\\Documentos\\GitHub\\Projeto-Lanches\\imagens\\brownie.jpg"));
+		lblNewLabel_2.setBounds(523, 51, 129, 86);
+		frame.getContentPane().add(lblNewLabel_2);
+		
+		ImageIcon imagem = new ImageIcon(getClass().getResource("bolo.jpg"));
+		
 		frame.setBounds(100, 100, 731, 411);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-
 }
