@@ -12,10 +12,22 @@ import javax.swing.JSpinner;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.JTextField;
 
 public class telaBebidas {
 
 	private JFrame frame;
+	private JTextField txtLaranja;
+	private JTextField txtMaracuj;
+	private JTextField txtAcerola;
+	private JTextField txtCocacola;
+	private JTextField txtFanta;
+	private JTextField txtGuaran;
+	private JTextField txtSprite;
+	private JTextField txtChocolate;
+	private JTextField txtMorango;
+	private JTextField txtDoceDeLeite;
 
 	/**
 	 * Launch the application.
@@ -84,93 +96,53 @@ public class telaBebidas {
 		btnSacola.setBounds(630, 334, 75, 27);
 		frame.getContentPane().add(btnSacola);
 		
-		JButton btnVoltar_1 = new JButton("laranja");
-		btnVoltar_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnVoltar_1.setBounds(48, 195, 129, 27);
-		frame.getContentPane().add(btnVoltar_1);
-		
-		JButton btnVoltar_1_1 = new JButton("maracujá");
-		btnVoltar_1_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnVoltar_1_1.setBounds(48, 226, 129, 27);
-		frame.getContentPane().add(btnVoltar_1_1);
-		
-		JButton btnVoltar_1_2 = new JButton("acerola");
-		btnVoltar_1_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnVoltar_1_2.setBounds(48, 257, 129, 27);
-		frame.getContentPane().add(btnVoltar_1_2);
-		
-		JButton btnVoltar_1_3 = new JButton("coca-cola");
-		btnVoltar_1_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnVoltar_1_3.setBounds(275, 195, 129, 27);
-		frame.getContentPane().add(btnVoltar_1_3);
-		
-		JButton btnVoltar_1_1_1 = new JButton("fanta");
-		btnVoltar_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnVoltar_1_1_1.setBounds(275, 226, 129, 27);
-		frame.getContentPane().add(btnVoltar_1_1_1);
-		
-		JButton btnVoltar_1_2_1 = new JButton("guaraná");
-		btnVoltar_1_2_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnVoltar_1_2_1.setBounds(275, 257, 129, 27);
-		frame.getContentPane().add(btnVoltar_1_2_1);
-		
-		JButton btnVoltar_1_4 = new JButton("chocolate");
-		btnVoltar_1_4.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnVoltar_1_4.setBounds(503, 195, 129, 27);
-		frame.getContentPane().add(btnVoltar_1_4);
-		
-		JButton btnVoltar_1_1_2 = new JButton("morango");
-		btnVoltar_1_1_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnVoltar_1_1_2.setBounds(503, 226, 129, 27);
-		frame.getContentPane().add(btnVoltar_1_1_2);
-		
-		JButton btnVoltar_1_2_2 = new JButton("doce de leite");
-		btnVoltar_1_2_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnVoltar_1_2_2.setBounds(503, 257, 129, 27);
-		frame.getContentPane().add(btnVoltar_1_2_2);
-		
 		JSpinner spinner = new JSpinner();
+		spinner.setModel(new SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
 		spinner.setBounds(179, 195, 38, 27);
 		frame.getContentPane().add(spinner);
 		
 		JSpinner spinner_1 = new JSpinner();
+		spinner_1.setModel(new SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
 		spinner_1.setBounds(179, 226, 38, 27);
 		frame.getContentPane().add(spinner_1);
 		
 		JSpinner spinner_2 = new JSpinner();
+		spinner_2.setModel(new SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
 		spinner_2.setBounds(179, 257, 38, 27);
 		frame.getContentPane().add(spinner_2);
 		
 		JSpinner spinner_3 = new JSpinner();
+		spinner_3.setModel(new SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
 		spinner_3.setBounds(406, 195, 38, 27);
 		frame.getContentPane().add(spinner_3);
 		
 		JSpinner spinner_4 = new JSpinner();
+		spinner_4.setModel(new SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
 		spinner_4.setBounds(406, 226, 38, 27);
 		frame.getContentPane().add(spinner_4);
 		
 		JSpinner spinner_5 = new JSpinner();
+		spinner_5.setModel(new SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
 		spinner_5.setBounds(406, 257, 38, 27);
 		frame.getContentPane().add(spinner_5);
 		
 		JSpinner spinner_6 = new JSpinner();
+		spinner_6.setModel(new SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
 		spinner_6.setBounds(634, 195, 38, 27);
 		frame.getContentPane().add(spinner_6);
 		
 		JSpinner spinner_7 = new JSpinner();
+		spinner_7.setModel(new SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
 		spinner_7.setBounds(634, 226, 38, 27);
 		frame.getContentPane().add(spinner_7);
 		
 		JSpinner spinner_8 = new JSpinner();
+		spinner_8.setModel(new SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
 		spinner_8.setBounds(634, 257, 38, 27);
 		frame.getContentPane().add(spinner_8);
 		
-		JButton btnVoltar_1_2_1_1 = new JButton("sprite");
-		btnVoltar_1_2_1_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnVoltar_1_2_1_1.setBounds(275, 287, 129, 27);
-		frame.getContentPane().add(btnVoltar_1_2_1_1);
-		
 		JSpinner spinner_5_1 = new JSpinner();
+		spinner_5_1.setModel(new SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
 		spinner_5_1.setBounds(406, 287, 38, 27);
 		frame.getContentPane().add(spinner_5_1);
 		
@@ -190,6 +162,95 @@ public class telaBebidas {
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2.setBounds(523, 51, 129, 86);
 		frame.getContentPane().add(lblNewLabel_2);
+		
+		txtLaranja = new JTextField();
+		txtLaranja.setEditable(false);
+		txtLaranja.setHorizontalAlignment(SwingConstants.CENTER);
+		txtLaranja.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtLaranja.setText("laranja");
+		txtLaranja.setBounds(48, 195, 129, 27);
+		frame.getContentPane().add(txtLaranja);
+		txtLaranja.setColumns(10);
+		
+		txtMaracuj = new JTextField();
+		txtMaracuj.setEditable(false);
+		txtMaracuj.setText("maracujá");
+		txtMaracuj.setHorizontalAlignment(SwingConstants.CENTER);
+		txtMaracuj.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtMaracuj.setColumns(10);
+		txtMaracuj.setBounds(48, 226, 129, 27);
+		frame.getContentPane().add(txtMaracuj);
+		
+		txtAcerola = new JTextField();
+		txtAcerola.setEditable(false);
+		txtAcerola.setText("acerola");
+		txtAcerola.setHorizontalAlignment(SwingConstants.CENTER);
+		txtAcerola.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtAcerola.setColumns(10);
+		txtAcerola.setBounds(48, 257, 129, 27);
+		frame.getContentPane().add(txtAcerola);
+		
+		txtCocacola = new JTextField();
+		txtCocacola.setEditable(false);
+		txtCocacola.setText("coca-cola");
+		txtCocacola.setHorizontalAlignment(SwingConstants.CENTER);
+		txtCocacola.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtCocacola.setColumns(10);
+		txtCocacola.setBounds(275, 195, 129, 27);
+		frame.getContentPane().add(txtCocacola);
+		
+		txtFanta = new JTextField();
+		txtFanta.setEditable(false);
+		txtFanta.setText("fanta");
+		txtFanta.setHorizontalAlignment(SwingConstants.CENTER);
+		txtFanta.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtFanta.setColumns(10);
+		txtFanta.setBounds(275, 226, 129, 27);
+		frame.getContentPane().add(txtFanta);
+		
+		txtGuaran = new JTextField();
+		txtGuaran.setText("guaraná");
+		txtGuaran.setHorizontalAlignment(SwingConstants.CENTER);
+		txtGuaran.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtGuaran.setEditable(false);
+		txtGuaran.setColumns(10);
+		txtGuaran.setBounds(275, 257, 129, 27);
+		frame.getContentPane().add(txtGuaran);
+		
+		txtSprite = new JTextField();
+		txtSprite.setText("sprite");
+		txtSprite.setHorizontalAlignment(SwingConstants.CENTER);
+		txtSprite.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtSprite.setEditable(false);
+		txtSprite.setColumns(10);
+		txtSprite.setBounds(275, 287, 129, 27);
+		frame.getContentPane().add(txtSprite);
+		
+		txtChocolate = new JTextField();
+		txtChocolate.setText("chocolate");
+		txtChocolate.setHorizontalAlignment(SwingConstants.CENTER);
+		txtChocolate.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtChocolate.setEditable(false);
+		txtChocolate.setColumns(10);
+		txtChocolate.setBounds(503, 195, 129, 27);
+		frame.getContentPane().add(txtChocolate);
+		
+		txtMorango = new JTextField();
+		txtMorango.setText("morango");
+		txtMorango.setHorizontalAlignment(SwingConstants.CENTER);
+		txtMorango.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtMorango.setEditable(false);
+		txtMorango.setColumns(10);
+		txtMorango.setBounds(503, 226, 129, 27);
+		frame.getContentPane().add(txtMorango);
+		
+		txtDoceDeLeite = new JTextField();
+		txtDoceDeLeite.setText("doce de leite");
+		txtDoceDeLeite.setHorizontalAlignment(SwingConstants.CENTER);
+		txtDoceDeLeite.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtDoceDeLeite.setEditable(false);
+		txtDoceDeLeite.setColumns(10);
+		txtDoceDeLeite.setBounds(503, 257, 129, 27);
+		frame.getContentPane().add(txtDoceDeLeite);
 	}
-
 }

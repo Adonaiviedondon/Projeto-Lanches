@@ -49,41 +49,41 @@ public class AdministradorTela {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JButton btnLogin = new JButton("Login");
-		btnLogin.setBounds(113, 298, 144, 39);
+		JButton btnLogin = new JButton("Entrar");
+		btnLogin.setBounds(221, 298, 144, 39);
 		frame.getContentPane().add(btnLogin);
 		
-		JButton btnNewButton_1 = new JButton("Cadastro");
+		JButton btnNewButton_1 = new JButton("Cadastrar");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_1.setBounds(321, 298, 144, 39);
+		btnNewButton_1.setBounds(487, 298, 144, 39);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JLabel lblNewLabel = new JLabel("JAVAX LANCHES");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 50));
-		lblNewLabel.setBounds(53, 11, 466, 72);
+		lblNewLabel.setBounds(10, 11, 695, 72);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Nome de Usuário(Username):");
+		JLabel lblNewLabel_1 = new JLabel("Login:");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1.setBounds(24, 94, 222, 24);
+		lblNewLabel_1.setBounds(45, 111, 222, 24);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		textField = new JTextField();
-		textField.setBounds(24, 129, 320, 29);
+		textField.setBounds(45, 146, 320, 29);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		
-		JLabel lblNewLabel_2 = new JLabel("Senha(Password):");
+		JLabel lblNewLabel_2 = new JLabel("Senha:");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_2.setBounds(24, 186, 208, 24);
+		lblNewLabel_2.setBounds(45, 196, 208, 24);
 		frame.getContentPane().add(lblNewLabel_2);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(24, 231, 320, 29);
+		textField_1.setBounds(45, 231, 320, 29);
 		frame.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
 		

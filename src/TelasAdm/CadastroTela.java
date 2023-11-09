@@ -58,38 +58,38 @@ public class CadastroTela {
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("JAVAX LANCHES");
-		lblNewLabel.setBounds(53, 11, 466, 72);
+		lblNewLabel.setBounds(10, 11, 695, 72);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 50));
 		frame.getContentPane().add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Código do Funcionário:");
-		lblNewLabel_1.setBounds(20, 81, 218, 33);
+		JLabel lblNewLabel_1 = new JLabel("Código:");
+		lblNewLabel_1.setBounds(150, 134, 88, 26);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		textField = new JTextField();
-		textField.setBounds(243, 88, 293, 27);
+		textField.setBounds(225, 134, 311, 27);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		
-		lblNewLabel_2 = new JLabel("Salário do Funcionário:");
+		lblNewLabel_2 = new JLabel("Nome:");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_2.setBounds(20, 140, 218, 27);
+		lblNewLabel_2.setBounds(150, 172, 88, 27);
 		frame.getContentPane().add(lblNewLabel_2);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(243, 140, 293, 27);
+		textField_1.setBounds(225, 172, 311, 27);
 		frame.getContentPane().add(textField_1);
 		
-		lblNewLabel_3 = new JLabel("Nome do Funcionário:");
+		lblNewLabel_3 = new JLabel("Salário:");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_3.setBounds(20, 202, 198, 25);
+		lblNewLabel_3.setBounds(150, 210, 88, 25);
 		frame.getContentPane().add(lblNewLabel_3);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(243, 201, 293, 26);
+		textField_2.setBounds(225, 209, 311, 26);
 		frame.getContentPane().add(textField_2);
 		textField_2.setColumns(10);
 		
@@ -99,12 +99,12 @@ public class CadastroTela {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(62, 270, 199, 34);
+		btnNewButton.setBounds(150, 304, 199, 34);
 		frame.getContentPane().add(btnNewButton);
 		
 		btnNewButton_1 = new JButton("Remover Funcionario");
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnNewButton_1.setBounds(297, 269, 199, 36);
+		btnNewButton_1.setBounds(385, 303, 199, 36);
 		frame.getContentPane().add(btnNewButton_1);
 	}
 }
