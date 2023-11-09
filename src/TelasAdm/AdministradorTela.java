@@ -1,9 +1,6 @@
-package telas;
-import java.awt.EventQueue;
-
+package TelasAdm;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
 import javax.swing.*;
 import java.awt.*;
@@ -47,7 +44,8 @@ public class AdministradorTela {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 600, 400);
+		frame.getContentPane().setBackground(new Color(255, 241, 219));
+		frame.setBounds(100, 100, 731, 411);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		

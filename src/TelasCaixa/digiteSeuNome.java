@@ -1,4 +1,4 @@
-package javaxLanches;
+package TelasCaixa;
 
 import java.awt.EventQueue;
 

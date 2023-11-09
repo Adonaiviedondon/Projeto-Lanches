@@ -1,4 +1,4 @@
-package telas;
+package TelasAdm;
 
 import java.awt.EventQueue;
 
@@ -10,6 +10,8 @@ import java.awt.Font;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import java.awt.BorderLayout;
+import java.awt.Color;
+
 import javax.swing.JSplitPane;
 import javax.swing.JInternalFrame;
 import javax.swing.Box;
@@ -49,7 +51,8 @@ public class AdministradorTelaGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 600, 400);
+		frame.getContentPane().setBackground(new Color(255, 241, 219));
+		frame.setBounds(100, 100, 731, 411);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
