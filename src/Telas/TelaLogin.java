@@ -35,15 +35,17 @@ public class TelaLogin extends JFrame {
             rs = pst.executeQuery();
             if (rs.next()) {
                 String perfil = rs.getString(6);
-                if (perfil.equals("admim")) {
+                if (perfil.equals("Admin")) {
                     TelaPrincipal principal = new TelaPrincipal();
                     principal.setVisible(true);
                     TelaPrincipal.jMUsuario.setEnabled(true);
                     TelaPrincipal.jMenuCadastro.setEnabled(true);
+                    TelaPrincipal.jLabelUsario.setText(rs.getString(2));
                     this.dispose();
                 } else {                    
                     TelaPrincipal principal = new TelaPrincipal();
                     principal.setVisible(true);
+                    TelaPrincipal.jLabelUsario.setText(rs.getString(2));
                     this.dispose();
                 }
             } else {
