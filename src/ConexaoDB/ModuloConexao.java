@@ -11,7 +11,7 @@ public class ModuloConexao {
 		String driver = "com.mysql.cj.jdbc.Driver";
 		String url = "jdbc:mysql://localhost:3306/dbDomDomLanches";
 		String user = "root";
-		String password = "16nilda08";
+		String password = "8072";
 		
 		try {
 			Class.forName(driver);

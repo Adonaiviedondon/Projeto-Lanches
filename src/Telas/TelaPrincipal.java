@@ -13,10 +13,6 @@ import javax.swing.JOptionPane;
  * @author tyago
  */
 public class TelaPrincipal extends javax.swing.JFrame {
-    private TelaUsuario usuarioFrame;   
-    private Lanche lancheFrame;        
-    private Bebida bebidaFrame;        
-
 
     /**
      * Creates new form TelaPrincipal2
@@ -42,11 +38,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         cadastro = new javax.swing.JMenu();
         clientes = new javax.swing.JMenuItem();
         jMUsuario = new javax.swing.JMenuItem();
-        Pedidos = new javax.swing.JMenu();
-        Cardapio = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
         jMenuCadastro = new javax.swing.JMenuItem();
-        Lanches = new javax.swing.JMenuItem();
-        Bebidas = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         sair = new javax.swing.JMenuItem();
 
@@ -91,6 +85,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         cadastro.add(clientes);
 
         jMUsuario.setText("Usuários");
+        jMUsuario.setEnabled(false);
         jMUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMUsuarioActionPerformed(evt);
@@ -100,31 +95,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         Menu.add(cadastro);
 
-        Pedidos.setText("Pedidos");
-        Menu.add(Pedidos);
+        jMenu2.setText("Pedidos");
+        Menu.add(jMenu2);
 
-        Cardapio.setText("Cardapio");
+        jMenu3.setText("Cardapio");
 
         jMenuCadastro.setText("Cadastro");
-        Cardapio.add(jMenuCadastro);
+        jMenuCadastro.setEnabled(false);
+        jMenu3.add(jMenuCadastro);
 
-        Lanches.setText("Lanches");
-        Lanches.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LanchesActionPerformed(evt);
-            }
-        });
-        Cardapio.add(Lanches);
-
-        Bebidas.setText("Bebidas");
-        Bebidas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BebidasActionPerformed(evt);
-            }
-        });
-        Cardapio.add(Bebidas);
-
-        Menu.add(Cardapio);
+        Menu.add(jMenu3);
 
         jMenu1.setText("Opções ");
 
@@ -198,46 +178,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_sairActionPerformed
 
     private void jMUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMUsuarioActionPerformed
-        if(usuarioFrame==null){
-            usuarioFrame = new TelaUsuario();
-            jDesktop.add(usuarioFrame);
-        }
-        usuarioFrame.setVisible(true);
+        TelaUsuario  usuario = new TelaUsuario();
+        usuario.setVisible(true);
+        jDesktop.add(usuario);
         
-        
-        if(bebidaFrame != null ||lancheFrame != null){
-            bebidaFrame.setVisible(false);
-            lancheFrame.setVisible(false);
-        }
     }//GEN-LAST:event_jMUsuarioActionPerformed
-
-    private void LanchesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LanchesActionPerformed
-        if (lancheFrame == null) {
-            lancheFrame = new Lanche();
-            jDesktop.add(lancheFrame);
-        }
-        lancheFrame.setVisible(true);
-
-        
-        if (bebidaFrame != null || usuarioFrame!= null) {
-            bebidaFrame.setVisible(false);
-            usuarioFrame.setVisible(false);
-        }
-    }//GEN-LAST:event_LanchesActionPerformed
-
-    private void BebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BebidasActionPerformed
-        if (bebidaFrame == null) {
-            bebidaFrame = new Bebida();
-            jDesktop.add(bebidaFrame);
-        }
-        bebidaFrame.setVisible(true);
-
-        // Ocultar outros frames, se existirem
-        if (lancheFrame != null || usuarioFrame!= null) {
-            lancheFrame.setVisible(false);
-            usuarioFrame.setVisible(false);
-        }
-    }//GEN-LAST:event_BebidasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -276,11 +221,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem Bebidas;
-    private javax.swing.JMenu Cardapio;
-    private javax.swing.JMenuItem Lanches;
     private javax.swing.JMenuBar Menu;
-    private javax.swing.JMenu Pedidos;
     private javax.swing.JMenu cadastro;
     private javax.swing.JMenuItem clientes;
     private javax.swing.JDesktopPane jDesktop;
@@ -289,6 +230,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLbData;
     public static javax.swing.JMenuItem jMUsuario;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     public static javax.swing.JMenuItem jMenuCadastro;
     private javax.swing.JMenuItem sair;
     // End of variables declaration//GEN-END:variables
