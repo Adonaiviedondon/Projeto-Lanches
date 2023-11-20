@@ -13,6 +13,10 @@ import javax.swing.JOptionPane;
  * @author tyago
  */
 public class TelaPrincipal extends javax.swing.JFrame {
+    private TelaUsuario usuarioFrame;   
+    private Lanche lancheFrame;        
+    private Bebida bebidaFrame;        
+
 
     /**
      * Creates new form TelaPrincipal2
@@ -194,22 +198,45 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_sairActionPerformed
 
     private void jMUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMUsuarioActionPerformed
-        TelaUsuario  usuario = new TelaUsuario();
-        usuario.setVisible(true);
-        jDesktop.add(usuario);
+        if(usuarioFrame==null){
+            usuarioFrame = new TelaUsuario();
+            jDesktop.add(usuarioFrame);
+        }
+        usuarioFrame.setVisible(true);
         
+        
+        if(bebidaFrame != null ||lancheFrame != null){
+            bebidaFrame.setVisible(false);
+            lancheFrame.setVisible(false);
+        }
     }//GEN-LAST:event_jMUsuarioActionPerformed
 
     private void LanchesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LanchesActionPerformed
-        Lanche lanche = new Lanche();
-        lanche.setVisible(true);
-        jDesktop.add(lanche);
+        if (lancheFrame == null) {
+            lancheFrame = new Lanche();
+            jDesktop.add(lancheFrame);
+        }
+        lancheFrame.setVisible(true);
+
+        
+        if (bebidaFrame != null || usuarioFrame!= null) {
+            bebidaFrame.setVisible(false);
+            usuarioFrame.setVisible(false);
+        }
     }//GEN-LAST:event_LanchesActionPerformed
 
     private void BebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BebidasActionPerformed
-        Bebida bebida = new Bebida();
-        bebida.setVisible(true);
-        jDesktop.add( bebida);
+        if (bebidaFrame == null) {
+            bebidaFrame = new Bebida();
+            jDesktop.add(bebidaFrame);
+        }
+        bebidaFrame.setVisible(true);
+
+        // Ocultar outros frames, se existirem
+        if (lancheFrame != null || usuarioFrame!= null) {
+            lancheFrame.setVisible(false);
+            usuarioFrame.setVisible(false);
+        }
     }//GEN-LAST:event_BebidasActionPerformed
 
     /**
