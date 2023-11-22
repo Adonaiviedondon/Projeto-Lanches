@@ -85,7 +85,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         cadastro.add(clientes);
 
         jMUsuario.setText("Usuários");
-        jMUsuario.setEnabled(false);
         jMUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMUsuarioActionPerformed(evt);

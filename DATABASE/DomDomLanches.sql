@@ -28,13 +28,14 @@ emailCLiente varchar(50) not null
 create table tbCardapio(
 idLanche int primary key auto_increment,
 nomeLanche varchar(30) not null,
-descLanche varchar(30) not null,
+descLanche varchar(40) not null,
 valorLanche decimal(4,2) not null);
 
 create table tbBebidas(
 idBebida int primary key auto_increment,
-nomeBebida varchar(10) not null,          
-valorBebidada decimal(4,2) not null);
+nomeBebida varchar(10) not null,  
+descBebida varchar(30) not null,       
+valorBebida decimal(4,2) not null);
 
 create table tbPedidos(
 idPedido int primary key auto_increment,
@@ -46,7 +47,28 @@ foreign key (idCliente) references tbClientes (idCliente),
 foreign key (idLanche) references tbCardapio (idLanche),
 foreign key (idBebida) references tbBebidas (idBebida));
 
+describe tbCardapio;
+insert into tbCardapio (idLanche,nomeLanche,descLanche,valorLanche)
+values(1,'Bolo','sabor de chocolate recheado',15.00);
+insert into tbCardapio (idLanche,nomeLanche,descLanche,valorLanche)
+values(2,'cachorro','recheado com batata palha ,mostarda e tomate',7.00);
+insert into tbCardapio (idLanche,nomeLanche,descLanche,valorLanche)
+values(3,'coxinha','sabor frango recheado com catupiry',8.00);
+insert into tbCardapio (idLanche,nomeLanche,descLanche,valorLanche)
+values(4,'brownie','bolo denso e úmido  redondo ou quadrado',5.00);
+insert into tbCardapio (idLanche,nomeLanche,descLanche,valorLanche)
+values(5,'pudim',' mistura de ingredientes com por liga com farinha de trigo',16.00);
+insert into tbCardapio (idLanche,nomeLanche,descLanche,valorLanche)
+values(6,'Sanduiche','pao recheado com queijo e presunto',9.00);
+insert into tbCardapio (idLanche,nomeLanche,descLanche,valorLanche)
+values(7,'pizza','sabor calabresa com cebola e tomate',25.00);
+insert into tbCardapio (idLanche,nomeLanche,descLanche,valorLanche)
+values(8,'pastel','7 opçoes de recheio por escolha do cliente',10.00);
 
-
-
-
+describe tbBebidas;
+insert into tbBebidas (idBebida,nomeBebida,descBebida,valorBebida)
+values (9,'Milkshake','espessa e cremosa com leite,sorvete e calda saborizada',14.00);
+insert into tbBebidas (idBebida,nomeBebida,descBebida,valorBebida)
+values (10,'refrigerante','coca cola ou antartica',8.00);
+insert into tbBebidas (idBebida,nomeBebida,descBebida,valorBebida)
+values (11,'suco','sabor laranja,acerola ou maracujá',8.00);
