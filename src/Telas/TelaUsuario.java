@@ -112,7 +112,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
     }
 
     private void atualizar() {
-        String sql = "update tbUsuarios set usuario = ?, fone = ?, login = ?, senha = ?, perfil = ? where idUser = ? ";
+            String sql = "update tbUsuarios set usuario = ?, fone = ?, login = ?, senha = ?, perfil = ? where idUser = ? ";
         try {
             pst = conexao.prepareStatement(sql);
             pst.setString(1, txtNomeUsuario.getText());
