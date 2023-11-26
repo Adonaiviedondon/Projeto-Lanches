@@ -50,27 +50,25 @@ foreign key (idBebida) references tbBebidas (idBebida));
 describe tbCardapio;
 insert into tbCardapio (idLanche,nomeLanche,descLanche,valorLanche)
 values(1,'Bolo','sabor de chocolate recheado',15.00);
-insert into tbCardapio (nomeLanche,descLanche,valorLanche)
-values('cachorro','recheado com batata palha ,mostarda e tomate',7.00);
-insert into tbCardapio (nomeLanche,descLanche,valorLanche)
-values('coxinha','sabor frango recheado com catupiry',8.00);
-insert into tbCardapio (nomeLanche,descLanche,valorLanche)
-values('brownie','bolo denso e úmido  redondo ou quadrado',5.00);
-insert into tbCardapio (nomeLanche,descLanche,valorLanche)
-values('pudim',' mistura de ingredientes com por liga com farinha de trigo',16.00);
-insert into tbCardapio (nomeLanche,descLanche,valorLanche)
-values('Sanduiche','pao recheado com queijo e presunto',9.00);
-insert into tbCardapio (nomeLanche,descLanche,valorLanche)
-values('pizza','sabor calabresa com cebola e tomate',25.00);
-insert into tbCardapio (nomeLanche,descLanche,valorLanche)
-values('pastel','7 opçoes de recheio por escolha do cliente',10.00);
-select * from tbCardapio;
+insert into tbCardapio (idLanche,nomeLanche,descLanche,valorLanche)
+values(2,'cachorro','recheado com batata palha ,mostarda e tomate',7.00);
+insert into tbCardapio (idLanche,nomeLanche,descLanche,valorLanche)
+values(3,'coxinha','sabor frango recheado com catupiry',8.00);
+insert into tbCardapio (idLanche,nomeLanche,descLanche,valorLanche)
+values(4,'brownie','bolo denso e úmido  redondo ou quadrado',5.00);
+insert into tbCardapio (idLanche,nomeLanche,descLanche,valorLanche)
+values(5,'pudim',' mistura de ingredientes com por liga com farinha de trigo',16.00);
+insert into tbCardapio (idLanche,nomeLanche,descLanche,valorLanche)
+values(6,'Sanduiche','pao recheado com queijo e presunto',9.00);
+insert into tbCardapio (idLanche,nomeLanche,descLanche,valorLanche)
+values(7,'pizza','sabor calabresa com cebola e tomate',25.00);
+insert into tbCardapio (idLanche,nomeLanche,descLanche,valorLanche)
+values(8,'pastel','7 opçoes de recheio por escolha do cliente',10.00);
 
 describe tbBebidas;
 insert into tbBebidas (idBebida,nomeBebida,descBebida,valorBebida)
 values (9,'Milkshake','espessa e cremosa com leite,sorvete e calda saborizada',14.00);
-insert into tbBebidas (nomeBebida,descBebida,valorBebida)
-values ('refrigerante','coca cola ou antartica',8.00);
-insert into tbBebidas (nomeBebida,descBebida,valorBebida)
-values ('suco','sabor laranja,acerola ou maracujá',8.00);
-select * from tbBebidas;
+insert into tbBebidas (idBebida,nomeBebida,descBebida,valorBebida)
+values (10,'refrigerante','coca cola ou antartica',8.00);
+insert into tbBebidas (idBebida,nomeBebida,descBebida,valorBebida)
+values (11,'suco','sabor laranja,acerola ou maracujá',8.00);

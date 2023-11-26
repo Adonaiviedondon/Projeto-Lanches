@@ -5,12 +5,9 @@
 package Telas;
 import java.sql.*;
 import ConexaoDB.ModuloConexao;
-import Formatacao.FormatTft;
 import java.sql.Connection;  
 import java.sql.DriverManager;  
 import java.sql.SQLException;  
-import javax.swing.DefaultListModel;
-import javax.swing.JOptionPane;
 /**
  *
  * @author adonai
@@ -26,63 +23,6 @@ public class Cardapio extends javax.swing.JInternalFrame {
      */
     public Cardapio() {
         initComponents();
-        txtNome.setDocument(new FormatTft(50, FormatTft.TipoEntrada.NOME));
-        conexao = ModuloConexao.conector();
-    }
-    private void consultar(){
-        int busca = jItens.getSelectedIndex();
-        if (busca >= 0) {
-            String consultaItem = "select * from tbUsuarios where usuario like '" + txtNome.getText() + "%'" + "order by usuario limit " + busca + ",1";
-            try {
-                conexao = ModuloConexao.conector();
-                pst = conexao.prepareStatement(consultaItem);
-                rs = pst.executeQuery();
-                while (rs.next()) {
-                    jItens.setVisible(false);
-                    txtId.setText(rs.getString(1));
-                    txtNome.setText(rs.getString(2));
-                    txtdescriçao.setText(rs.getString(3));
-                    txtpreço.setText(rs.getString(4));
-                    
-                }
-
-            } catch (Exception e) {
-            }
-        } else {
-            jItens.setVisible(false);
-        }
-    }
-
-    
-    private void ajustar(){
-        String sql = "update tbCardapio set nomeLanche = ?,descLanche = ?,valorLanche = ? where idLanche = ? ";
-       try {
-            pst = conexao.prepareStatement(sql);
-            pst.setString(1, txtNome.getText());
-            pst.setString(2, txtdescriçao.getText());
-            pst.setString(3, txtpreço.getText());
-            pst.setString(4, txtId.getText());
-            if (txtNome.getText().isEmpty() || txtdescriçao.getText().isEmpty() || txtpreço.getText().isEmpty() || txtId.getText().isEmpty() ) {
-                JOptionPane.showMessageDialog(null, "Informe todos os campos");
-            } else {
-                pst.executeUpdate();
-                JOptionPane.showMessageDialog(null, "Dados alterados com sucesso");
-                txtNome.setText(null);
-                txtdescriçao.setText(null);
-                txtpreço.setText(null);
-                txtId.setText(null);
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Não foi possivel alterar os dados do usuário");
-            System.out.println(e);
-        } finally {
-            try {
-                conexao.close();
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, ex);
-            }
-        }
     }
 
     /**
@@ -94,168 +34,147 @@ public class Cardapio extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        JimagemItem = new javax.swing.JLabel();
-        Jcardapio = new javax.swing.JLabel();
-        Jnome = new javax.swing.JLabel();
-        txtNome = new javax.swing.JTextField();
-        Jpreço = new javax.swing.JLabel();
-        Jdescriçao = new javax.swing.JLabel();
-        txtdescriçao = new javax.swing.JTextField();
-        txtpreço = new javax.swing.JTextField();
-        Jcodigo = new javax.swing.JLabel();
-        txtId = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jItens = new javax.swing.JList<>();
-        BtAjustar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
 
-        JimagemItem.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        Jcardapio.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        Jcardapio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Jcardapio.setText("Cardápio");
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Cardápio");
 
-        Jnome.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        Jnome.setText("Nome:");
-
-        txtNome.addActionListener(new java.awt.event.ActionListener() {
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lanches", "Bebidas" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeActionPerformed(evt);
+                jComboBox2ActionPerformed(evt);
             }
         });
 
-        Jpreço.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        Jpreço.setText("Preço:");
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setText("Nome:");
 
-        Jdescriçao.setText("Descrição:");
-
-        txtdescriçao.addActionListener(new java.awt.event.ActionListener() {
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtdescriçaoActionPerformed(evt);
+                jTextField1ActionPerformed(evt);
             }
         });
 
-        txtpreço.addActionListener(new java.awt.event.ActionListener() {
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setText("Preço:");
+
+        jLabel5.setText("Descrição:");
+
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtpreçoActionPerformed(evt);
+                jTextField2ActionPerformed(evt);
             }
         });
 
-        Jcodigo.setText("id:");
-
-        jScrollPane2.setViewportView(jItens);
-
-        BtAjustar.setText("Ajustar");
-        BtAjustar.addActionListener(new java.awt.event.ActionListener() {
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtAjustarActionPerformed(evt);
+                jTextField3ActionPerformed(evt);
             }
         });
+
+        jLabel6.setText("id:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(Jdescriçao)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtdescriçao, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(32, 32, 32)
-                            .addComponent(JimagemItem, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(250, 250, 250)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Jcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57)
-                        .addComponent(Jpreço)
-                        .addGap(37, 37, 37)
-                        .addComponent(txtpreço, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(Jnome)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60))))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(114, 114, 114)
-                        .addComponent(Jcardapio, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(259, 259, 259)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jComboBox2, 0, 134, Short.MAX_VALUE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(123, 123, 123)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(BtAjustar)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(121, 121, 121)
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField2)))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Jcardapio, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(JimagemItem, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtpreço, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Jpreço)
-                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Jcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Jnome, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Jdescriçao, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtdescriçao, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(BtAjustar, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                .addGap(22, 22, 22))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeActionPerformed
+    }//GEN-LAST:event_jComboBox2ActionPerformed
 
-    private void txtpreçoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpreçoActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtpreçoActionPerformed
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void txtdescriçaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdescriçaoActionPerformed
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtdescriçaoActionPerformed
+    }//GEN-LAST:event_jTextField3ActionPerformed
 
-    private void BtAjustarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAjustarActionPerformed
-        ajustar();
-    }//GEN-LAST:event_BtAjustarActionPerformed
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtAjustar;
-    private javax.swing.JLabel Jcardapio;
-    private javax.swing.JLabel Jcodigo;
-    private javax.swing.JLabel Jdescriçao;
-    private javax.swing.JLabel JimagemItem;
-    private javax.swing.JLabel Jnome;
-    private javax.swing.JLabel Jpreço;
-    private javax.swing.JList<String> jItens;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField txtId;
-    private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtdescriçao;
-    private javax.swing.JTextField txtpreço;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
-
-    private void setDocument(FormatTft formatTft) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }

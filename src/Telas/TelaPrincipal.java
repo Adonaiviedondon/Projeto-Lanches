@@ -13,8 +13,7 @@ import javax.swing.JOptionPane;
  * @author tyago
  */
 public class TelaPrincipal extends javax.swing.JFrame {
-    private TelaUsuario usuarioFrame;
-    private Cardapio cardapioframe;
+
     /**
      * Creates new form TelaPrincipal2
      */
@@ -101,11 +100,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu3.setText("Cardapio");
 
         jMenuCadastro.setText("Cadastro");
-        jMenuCadastro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuCadastroActionPerformed(evt);
-            }
-        });
+        jMenuCadastro.setEnabled(false);
         jMenu3.add(jMenuCadastro);
 
         Menu.add(jMenu3);
@@ -182,33 +177,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_sairActionPerformed
 
     private void jMUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMUsuarioActionPerformed
-         if(usuarioFrame==null){
-            usuarioFrame = new TelaUsuario();
-            jDesktop.add(usuarioFrame);
-        }
-        usuarioFrame.setVisible(true);
-        
-        
-        if(cardapioframe != null ){
-            cardapioframe.setVisible(false);
-        }
-        
+        TelaUsuario  usuario = new TelaUsuario();
+        usuario.setVisible(true);
+        jDesktop.add(usuario);
         
     }//GEN-LAST:event_jMUsuarioActionPerformed
-
-    private void jMenuCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCadastroActionPerformed
-        if(cardapioframe==null){
-            cardapioframe = new Cardapio();
-            jDesktop.add(cardapioframe);
-        }
-        cardapioframe.setVisible(true);
-        
-        
-        if(usuarioFrame != null ){
-            usuarioFrame.setVisible(false);
-        }
-            
-    }//GEN-LAST:event_jMenuCadastroActionPerformed
 
     /**
      * @param args the command line arguments
