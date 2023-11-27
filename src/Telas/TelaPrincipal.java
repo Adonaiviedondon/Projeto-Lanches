@@ -41,6 +41,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenuCadastro = new javax.swing.JMenuItem();
+        jmenuItens = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         sair = new javax.swing.JMenuItem();
 
@@ -102,6 +103,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuCadastro.setText("Cadastro");
         jMenuCadastro.setEnabled(false);
         jMenu3.add(jMenuCadastro);
+
+        jmenuItens.setText("Itens");
+        jmenuItens.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmenuItensActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jmenuItens);
 
         Menu.add(jMenu3);
 
@@ -183,6 +192,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMUsuarioActionPerformed
 
+    private void jmenuItensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmenuItensActionPerformed
+        Cardapio cardapio = new Cardapio();
+        cardapio.setVisible(true);
+        jDesktop.add(cardapio);
+    }//GEN-LAST:event_jmenuItensActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -232,6 +247,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     public static javax.swing.JMenuItem jMenuCadastro;
+    private javax.swing.JMenuItem jmenuItens;
     private javax.swing.JMenuItem sair;
     // End of variables declaration//GEN-END:variables
 }
