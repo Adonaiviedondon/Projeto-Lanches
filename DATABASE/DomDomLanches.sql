@@ -64,6 +64,7 @@ insert into tbCardapio (idLanche,nomeLanche,descLanche,valorLanche)
 values(7,'pizza','sabor calabresa com cebola e tomate',25.00);
 insert into tbCardapio (idLanche,nomeLanche,descLanche,valorLanche)
 values(8,'pastel','7 opçoes de recheio por escolha do cliente',10.00);
+select * from tbCardapio;
 
 describe tbBebidas;
 insert into tbBebidas (idBebida,nomeBebida,descBebida,valorBebida)
@@ -72,3 +73,4 @@ insert into tbBebidas (idBebida,nomeBebida,descBebida,valorBebida)
 values (10,'refrigerante','coca cola ou antartica',8.00);
 insert into tbBebidas (idBebida,nomeBebida,descBebida,valorBebida)
 values (11,'suco','sabor laranja,acerola ou maracujá',8.00);
+select * from tbCardapio;
