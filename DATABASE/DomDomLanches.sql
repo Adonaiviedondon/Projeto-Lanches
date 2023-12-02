@@ -25,6 +25,7 @@ endCliente varchar(50) not null,
 cepCliente varchar(50)  not null,
 emailCLiente varchar(50) not null
 );
+select * from tbClientes;
 create table tbCardapio(
 idLanche int primary key auto_increment,
 nomeLanche varchar(30) not null,

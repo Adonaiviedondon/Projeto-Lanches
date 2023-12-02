@@ -53,25 +53,33 @@ public class Cardapio extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 51, 140, 109));
 
         txtCardapio.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         txtCardapio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtCardapio.setText("Cardápio");
+        getContentPane().add(txtCardapio, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 0, 404, 39));
 
         lblIdItem.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblIdItem.setText("Id:");
+        getContentPane().add(lblIdItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 200, -1, -1));
 
         txtIdItem.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        getContentPane().add(txtIdItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 197, 103, -1));
 
         lblNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblNome.setText("Nome:");
+        getContentPane().add(lblNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 200, -1, -1));
 
         txtNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        getContentPane().add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 197, 120, -1));
 
         LblValor.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         LblValor.setText("Valor:");
+        getContentPane().add(LblValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 200, -1, -1));
 
         txtValor.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtValor.addActionListener(new java.awt.event.ActionListener() {
@@ -79,75 +87,17 @@ public class Cardapio extends javax.swing.JInternalFrame {
                 txtValorActionPerformed(evt);
             }
         });
+        getContentPane().add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 197, 103, -1));
 
         lblIdItem1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblIdItem1.setText("Descrição:");
+        getContentPane().add(lblIdItem1, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 249, -1, -1));
 
         txtIdItem1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        getContentPane().add(txtIdItem1, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 246, 454, -1));
 
         btnAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/atualizar.png"))); // NOI18N
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblIdItem1)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtIdItem1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblIdItem)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtIdItem, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblNome)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(LblValor)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(29, 29, 29)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(251, 251, 251)
-                        .addComponent(btnAtualizar)))
-                .addContainerGap(20, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(txtCardapio, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(93, 93, 93))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(txtCardapio, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblIdItem)
-                    .addComponent(txtIdItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNome)
-                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LblValor)
-                    .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblIdItem1)
-                    .addComponent(txtIdItem1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
-        );
+        getContentPane().add(btnAtualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 329, -1, 62));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
