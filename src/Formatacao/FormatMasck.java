@@ -8,14 +8,14 @@ import java.awt.TextField;
 import java.text.ParseException;
 import javax.swing.JFormattedTextField;
 import javax.swing.text.MaskFormatter;
-import javax.scene.control.TextFormatter;
+
 
 
 /**
  *
  * @author tyago
  */
-public class FormatMasck extends Application{
+public class FormatMasck extends App{
 
 
     public static void aplicarMascaraTelefone(TextField textField) {
