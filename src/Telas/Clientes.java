@@ -10,8 +10,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -43,10 +41,10 @@ public class Clientes extends javax.swing.JInternalFrame {
             pst = conexao.prepareStatement(readCliente);
             rs = pst.executeQuery();
             while (rs.next()) {
-                Jclientes.setVisible(true);
+                jScrollPane2.setVisible(true);
                 list.addElement(rs.getString(2));
                 if (txtNomeCliente.getText().isEmpty()) {
-                    Jclientes.setVisible(false);
+                    jScrollPane2.setVisible(false);
                 }
             }
        } catch (SQLException ex) {
@@ -54,124 +52,8 @@ public class Clientes extends javax.swing.JInternalFrame {
         }
     }
     
-    public void buscar(){
-        int busca = ListClientes.getSelectedIndex();
-        if(busca >=0){
-            String buscaCliente = "select * from tbClientes where cliente like '" + txtNomeCliente.getText() + "%'" + "order by cliente limit" + busca + ",1";
-            try{
-                conexao =  ModuloConexao.conector();
-                pst = conexao.prepareStatement(buscaCliente);
-                rs = pst.executeQuery();
-                while(rs.next()){
-                    Jclientes.setVisible(false);
-                    txtIdCliente.setText(rs.getString(1));
-                    txtNomeCliente.setText(rs.getString(2));
-                    txtClienteCidade.setText(rs.getString(3));
-                    txtClienteBairro.setText(rs.getString(4));
-                    txtClienteEndereço.setText(rs.getString(5));
-                    txtClienteCEP.setText(rs.getString(6));
-                    txtClienteEmail.setText(rs.getString(7));
-                   }
-            } catch (Exception e) {
-            }
-        }else{
-            Jclientes.setVisible(false);
-        }
-    }
-    
-    private void adicionar(){
-       String sql = "insert into tbClientes(nomeCliente,cidadeCliente,bairroCliente,endCliente,cepCliente,emailCliente) values (?,?,?,?,?,?)";
-      try {
-            conexao = ModuloConexao.conector();
-            pst = conexao.prepareStatement(sql);
-            //pst.setString(1,txtIdUsuario.getText());
-            pst.setString(1,  txtNomeCliente.getText());
-            pst.setString(2, txtClienteCidade.getText());
-            pst.setString(3, txtClienteBairro.getText());
-            pst.setString(4, txtClienteEndereço.getText());
-            pst.setString(5, txtClienteCEP.getText());
-            pst.setString(6, txtClienteEmail.getText());
-            if (txtNomeCliente.getText().isEmpty() || txtClienteCidade.getText().isEmpty() || txtClienteBairro.getText().isEmpty() || txtClienteEndereço.getText().isEmpty() || txtClienteCEP.getText().isEmpty() || txtClienteEmail.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "há campos vazios preencha todos por favor");
-
-            } else {
-
-                pst.executeUpdate();
-                JOptionPane.showMessageDialog(null, "Usuário adicionado com sucesso");
-                txtNomeCliente.setText(null);
-                txtClienteCidade.setText(null);
-                txtClienteBairro.setText(null);
-                txtClienteEndereço.setText(null);
-                txtClienteCEP.setText(null);
-                txtClienteEmail.setText(null);
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Não foi possivel cadastrar o usuário");
-
-        } finally {
-            try {
-                conexao.close();
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, ex);
-            }
-        }
-    }
-    private void atualizar() {
-        String sql = "update tbClientes set nomeCliente = ?, cidadeCliente = ?, bairroCliente = ?, endCliente = ?, cepCliente = ?, emailCliente = ? where idUser = ? ";
-        try {
-            pst = conexao.prepareStatement(sql);
-            pst.setString(1, txtNomeCliente.getText());
-            pst.setString(2, txtClienteCidade.getText());
-            pst.setString(3, txtClienteBairro.getText());
-            pst.setString(4, txtClienteEndereço.getText());
-            pst.setString(5, txtClienteCEP.getText());
-            pst.setString(6, txtClienteEmail.getText());
-            if (txtNomeCliente.getText().isEmpty() || txtClienteCidade.getText().isEmpty() || txtClienteBairro.getText().isEmpty() || txtClienteEndereço.getText().isEmpty() || txtClienteCEP.getText().isEmpty() || txtClienteEmail.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Informe todos os campos");
-            } else {
-                pst.executeUpdate();
-                JOptionPane.showMessageDialog(null, "Dados alterados com sucesso");
-                txtIdCliente.setText(null);
-                txtNomeCliente.setText(null);
-                txtClienteCidade.setText(null);
-                txtClienteBairro.setText(null);
-                txtClienteEndereço.setText(null);
-                txtClienteCEP.setText(null);
-                txtClienteEmail.setText(null);
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Não foi possivel alterar os dados do usuário");
-            System.out.println(e);
-        } finally {
-            try {
-                conexao.close();
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, ex);
-            }
-        }
-    }
-    private void remover(){
-        int confirma = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja remover o usuário?", "Atenção!", JOptionPane.YES_NO_OPTION);
-        if (confirma == JOptionPane.YES_OPTION) {
-            String sql = "delete from tbUsuarios where iduser=?";
-            try {
-                pst = conexao.prepareStatement(sql);
-                pst.setString(1, txtIdCliente.getText());
-                pst.executeUpdate();
-                JOptionPane.showMessageDialog(null, "Usuário excluido com sucesso!");
-                txtIdCliente.setText(null);
-                txtNomeCliente.setText(null);
-                txtClienteCidade.setText(null);
-                txtClienteBairro.setText(null);
-                txtClienteEndereço.setText(null);
-                txtClienteCEP.setText(null);
-                txtClienteEmail.setText(null);
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-            
-        }
+    public void Colocar(){
+        
     }
 
     /**
@@ -201,7 +83,7 @@ public class Clientes extends javax.swing.JInternalFrame {
         BtAdicionar = new javax.swing.JButton();
         BtDeletar = new javax.swing.JButton();
         BtAtualizar = new javax.swing.JButton();
-        Jclientes = new javax.swing.JScrollPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
         ListClientes = new javax.swing.JList<>();
 
         setClosable(true);
@@ -225,11 +107,6 @@ public class Clientes extends javax.swing.JInternalFrame {
         getContentPane().add(lblNomeCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 113, -1, -1));
 
         txtNomeCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtNomeCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeClienteActionPerformed(evt);
-            }
-        });
         txtNomeCliente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNomeClienteKeyReleased(evt);
@@ -273,73 +150,33 @@ public class Clientes extends javax.swing.JInternalFrame {
         getContentPane().add(txtClienteEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(316, 288, 288, -1));
 
         BtAdicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/adcionar.png"))); // NOI18N
-        BtAdicionar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtAdicionarActionPerformed(evt);
-            }
-        });
         getContentPane().add(BtAdicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 377, 59, 52));
 
         BtDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/deletar.png"))); // NOI18N
-        BtDeletar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtDeletarActionPerformed(evt);
-            }
-        });
         getContentPane().add(BtDeletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(487, 378, 56, 51));
 
         BtAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/atualizar.png"))); // NOI18N
-        BtAtualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtAtualizarActionPerformed(evt);
-            }
-        });
         getContentPane().add(BtAtualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 379, 56, 50));
 
         ListClientes.setBorder(null);
-        ListClientes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ListClientesMouseClicked(evt);
-            }
-        });
-        Jclientes.setViewportView(ListClientes);
+        jScrollPane2.setViewportView(ListClientes);
 
-        getContentPane().add(Jclientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 136, 520, 150));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 136, 520, 150));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNomeClienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeClienteKeyReleased
-        listar();
+        String search = txtNomeCliente.getText().trim();
     }//GEN-LAST:event_txtNomeClienteKeyReleased
-
-    private void BtAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAdicionarActionPerformed
-        adicionar();
-    }//GEN-LAST:event_BtAdicionarActionPerformed
-
-    private void BtAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAtualizarActionPerformed
-        atualizar();
-    }//GEN-LAST:event_BtAtualizarActionPerformed
-
-    private void BtDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtDeletarActionPerformed
-        remover();
-    }//GEN-LAST:event_BtDeletarActionPerformed
-
-    private void txtNomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeClienteActionPerformed
-
-    private void ListClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListClientesMouseClicked
-        buscar();
-    }//GEN-LAST:event_ListClientesMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtAdicionar;
     private javax.swing.JButton BtAtualizar;
     private javax.swing.JButton BtDeletar;
-    private javax.swing.JScrollPane Jclientes;
     private javax.swing.JList<String> ListClientes;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblClienteBairro;
     private javax.swing.JLabel lblClienteCEP;
     private javax.swing.JLabel lblClienteCidade;
