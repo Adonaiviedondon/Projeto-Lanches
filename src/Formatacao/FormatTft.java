@@ -15,7 +15,7 @@ public class FormatTft extends PlainDocument {
 	
 	public enum TipoEntrada {
     	
-         CPF, NCARTAO, NOME, CVV, PRECO, TELEFONE, CLASSIFICACAO;
+        NOME, PRECO, EMAIL, ENDERECO,SENHA;
         	
         }
 
@@ -30,7 +30,7 @@ public class FormatTft extends PlainDocument {
         @Override
         public void insertString(int i, String string, AttributeSet as) throws BadLocationException  {
         	
-        	if(string == null || getLength() == tamanhoMax) {
+        	if(string == null || getLength() >= tamanhoMax) {
         		return;
         	}
         	
@@ -38,14 +38,11 @@ public class FormatTft extends PlainDocument {
         	
         	String regex = "";
             switch(tpEntrada) {
-//            case EMAIL:	  regex = "[^\\p{IsLatin}@.\\-_][^0-9]"; break;
-            case CPF:     regex = "[^0-9]"; break;
-            case NCARTAO: regex = "[^0-9]"; break;
+            case ENDERECO: regex = "[^\\p{IsLatin} ][^0-9]"; break;
             case NOME:    regex = "[^\\p{IsLatin} ]"; break;
-            case CVV:	  regex = "[^0-9]"; break;     
-            case PRECO:   regex = "[^0-9]"; break;
-            case TELEFONE : regex = "^\\([1-9]{2}\\) (?:[2-8]|9[0-9])[0-9]{3}\\-[0-9]{4}$\\p{isNumeric}"; break;
-            case CLASSIFICACAO: regex = "[^0-9]"; break;
+            case PRECO:   regex = "[^0-9,.]"; break;
+            case EMAIL : regex = "[^\\p{IsLatin}@.\\-_][^0-9]"; break;
+            case SENHA: regex = "[^\\p{IsLatin}@.$#%*\\-_][^0-9]"; break;
             
             }  
             

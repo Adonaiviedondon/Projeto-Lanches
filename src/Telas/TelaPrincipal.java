@@ -41,7 +41,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenuCadastro = new javax.swing.JMenuItem();
-        jmenuItens = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         sair = new javax.swing.JMenuItem();
 
@@ -53,6 +52,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jDesktop.setBackground(new java.awt.Color(255, 255, 204));
         jDesktop.setPreferredSize(new java.awt.Dimension(640, 520));
         jDesktop.setVerifyInputWhenFocusTarget(false);
 
@@ -86,6 +86,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         cadastro.add(clientes);
 
         jMUsuario.setText("Usuários");
+        jMUsuario.setEnabled(false);
         jMUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMUsuarioActionPerformed(evt);
@@ -103,14 +104,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuCadastro.setText("Cadastro");
         jMenuCadastro.setEnabled(false);
         jMenu3.add(jMenuCadastro);
-
-        jmenuItens.setText("Itens");
-        jmenuItens.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmenuItensActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jmenuItens);
 
         Menu.add(jMenu3);
 
@@ -168,16 +161,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientesActionPerformed
-        Clientes cliente = new Clientes();
-        cliente.setVisible(true);
-        jDesktop.add(cliente);
+        TelaClientes clientes = new TelaClientes();
+        clientes.setVisible(true);
+        jDesktop.add(clientes);
+        // TODO add your handling code here:
     }//GEN-LAST:event_clientesActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         Date data = new Date();
         DateFormat format = DateFormat.getDateInstance(DateFormat.SHORT);
         jLbData.setText(format.format(data));
-        
+
     }//GEN-LAST:event_formWindowActivated
 
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
@@ -188,17 +182,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_sairActionPerformed
 
     private void jMUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMUsuarioActionPerformed
-        TelaUsuario  usuario = new TelaUsuario();
+        TelaUsuario usuario = new TelaUsuario();
         usuario.setVisible(true);
         jDesktop.add(usuario);
-        
-    }//GEN-LAST:event_jMUsuarioActionPerformed
 
-    private void jmenuItensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmenuItensActionPerformed
-        Cardapio cardapio = new Cardapio();
-        cardapio.setVisible(true);
-        jDesktop.add(cardapio);
-    }//GEN-LAST:event_jmenuItensActionPerformed
+    }//GEN-LAST:event_jMUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,7 +237,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     public static javax.swing.JMenuItem jMenuCadastro;
-    private javax.swing.JMenuItem jmenuItens;
     private javax.swing.JMenuItem sair;
     // End of variables declaration//GEN-END:variables
 }

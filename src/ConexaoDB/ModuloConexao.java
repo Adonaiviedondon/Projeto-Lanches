@@ -3,25 +3,24 @@ package ConexaoDB;
 import java.sql.*;
 
 public class ModuloConexao {
-	
-	private static final String DriverManeger = null;
 
-	public static Connection conector() {
-		java.sql.Connection conexao = null;
-		String driver = "com.mysql.cj.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/dbDomDomLanches";
-		String user = "root";
-		String password = "16nilda08";
-		
-		try {
-			Class.forName(driver);
-			conexao = DriverManager.getConnection(url, user, password);
-			return conexao;
-			
-		} catch (Exception e) {
-			return null;
-			// TODO: handle exception
-		}
-	}
+    public static Connection conector() {
+        Connection conexao;
+        String driver = "com.mysql.cj.jdbc.Driver";
+        String url = "jdbc:mysql://localhost:3306/dbDomDomLanches";
+        String user = "root";
+        String password = "Sport@0408";
+
+        try {
+            Class.forName(driver);
+            conexao = DriverManager.getConnection(url, user, password);
+            return conexao;
+
+        } catch (ClassNotFoundException | SQLException e) {
+            System.out.println(e);
+            return null;
+            // TODO: handle exception
+        }
+    }
 
 }

@@ -2,16 +2,11 @@ package Telas;
 
 import java.sql.*;
 import ConexaoDB.ModuloConexao;
-import Formatacao.FormatMasck;
 import Formatacao.FormatTft;
+import java.awt.HeadlessException;
 import javax.swing.DefaultListModel;
-import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author tyago
- */
 public class TelaUsuario extends javax.swing.JInternalFrame {
 
     Connection conexao = null;
@@ -24,6 +19,8 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
     public TelaUsuario() {
         initComponents();
         txtNomeUsuario.setDocument(new FormatTft(50, FormatTft.TipoEntrada.NOME));
+        txtLoginUsuario.setDocument(new FormatTft(8, FormatTft.TipoEntrada.SENHA));
+        txtSenhaUsuario.setDocument(new FormatTft(8, FormatTft.TipoEntrada.SENHA));
         conexao = ModuloConexao.conector();
     }
 
@@ -52,7 +49,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
     private void buscar() {
         int busca = listNomes.getSelectedIndex();
         if (busca >= 0) {
-            String buscaNome = "select * from tbUsuarios where usuario like '" + txtNomeUsuario.getText() + "%'" + "order by usuario limit " + busca + ",1";
+            String buscaNome = "select * from tbUsuarios where usuario like '" + txtNomeUsuario.getText() + "%'" + "order by usuario";
             try {
                 conexao = ModuloConexao.conector();
                 pst = conexao.prepareStatement(buscaNome);
@@ -65,12 +62,14 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                     txtLoginUsuario.setText(rs.getString(4));
                     txtSenhaUsuario.setText(rs.getString(5));
                     boxPerfilUsuario.setSelectedItem(rs.getString(6));
+                    btAdicionar.setEnabled(false);
                 }
 
             } catch (Exception e) {
             }
         } else {
             jNomes.setVisible(false);
+            
         }
     }
 
@@ -85,11 +84,12 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             pst.setString(3, txtLoginUsuario.getText());
             pst.setString(4, txtSenhaUsuario.getText());
             pst.setString(5, boxPerfilUsuario.getSelectedItem().toString());
+            
             if (txtNomeUsuario.getText().isEmpty() || txtFoneUsuario.getText().isEmpty() || txtLoginUsuario.getText().isEmpty() || txtSenhaUsuario.getText().isEmpty() || boxPerfilUsuario.getSelectedItem().toString().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Informe todos os campos");
-
+            } else if (txtSenhaUsuario.getText().length() < 6) {
+                JOptionPane.showMessageDialog(null, "A senha precisa ter no mínimo 6 caracteres.");
             } else {
-
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Usuário adicionado com sucesso");
                 txtIdUsuario.setText(null);
@@ -98,7 +98,11 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                 txtLoginUsuario.setText(null);
                 txtSenhaUsuario.setText(null);
             }
-        } catch (Exception e) {
+        } catch (SQLIntegrityConstraintViolationException e1) {
+            JOptionPane.showMessageDialog(null, "Login em uso.\nEscolha outro login.");
+            txtLoginUsuario.setText(null);
+            txtLoginUsuario.requestFocus();
+        }catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(null, "Não foi possivel cadastrar o usuário");
 
         } finally {
@@ -133,7 +137,11 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                 txtSenhaUsuario.setText(null);
             }
 
-        } catch (Exception e) {
+        } catch (SQLIntegrityConstraintViolationException e1) {
+            JOptionPane.showMessageDialog(null, "Login em uso.\nEscolha outro login.");
+            txtLoginUsuario.setText(null);
+            txtLoginUsuario.requestFocus();
+        } catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(null, "Não foi possivel alterar os dados do usuário");
             System.out.println(e);
         } finally {
@@ -181,20 +189,19 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         jPerfilUsuario = new javax.swing.JLabel();
         txtIdUsuario = new javax.swing.JTextField();
         txtNomeUsuario = new javax.swing.JTextField();
-        txtFoneUsuario = new javax.swing.JTextField();
         txtLoginUsuario = new javax.swing.JTextField();
         txtSenhaUsuario = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
         boxPerfilUsuario = new javax.swing.JComboBox<>();
         btAdicionar = new javax.swing.JButton();
         btAtualizar = new javax.swing.JButton();
         btDeletar = new javax.swing.JButton();
         jNomes = new javax.swing.JScrollPane();
         listNomes = new javax.swing.JList<>();
+        txtFoneUsuario = new javax.swing.JFormattedTextField();
 
         setClosable(true);
         setIconifiable(true);
-        setMaximizable(true);
+        setResizable(true);
         setTitle("Usuários");
         setPreferredSize(new java.awt.Dimension(640, 520));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -229,13 +236,6 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txtNomeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 460, -1));
-
-        txtFoneUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFoneUsuarioActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtFoneUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 180, -1));
         getContentPane().add(txtLoginUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 180, -1));
 
         txtSenhaUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -244,7 +244,6 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txtSenhaUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 180, -1));
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 322, -1, -1));
 
         boxPerfilUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "admin", "user" }));
         boxPerfilUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -299,7 +298,19 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         });
         jNomes.setViewportView(listNomes);
 
-        getContentPane().add(jNomes, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 460, 100));
+        getContentPane().add(jNomes, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 460, 80));
+
+        try {
+            txtFoneUsuario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtFoneUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFoneUsuarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtFoneUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 100, -1));
 
         setBounds(0, 0, 640, 520);
     }// </editor-fold>//GEN-END:initComponents
@@ -307,10 +318,6 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
     private void txtNomeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeUsuarioActionPerformed
-
-    private void txtFoneUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFoneUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFoneUsuarioActionPerformed
 
     private void txtSenhaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaUsuarioActionPerformed
         // TODO add your handling code here:
@@ -341,6 +348,10 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         buscar();
     }//GEN-LAST:event_listNomesMouseClicked
 
+    private void txtFoneUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFoneUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFoneUsuarioActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> boxPerfilUsuario;
@@ -348,14 +359,13 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JButton btAtualizar;
     private javax.swing.JButton btDeletar;
     private javax.swing.JLabel jFoneUsuaruo;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLoginUsuario;
     private javax.swing.JLabel jNomeUsuario;
     private javax.swing.JScrollPane jNomes;
     private javax.swing.JLabel jPerfilUsuario;
     private javax.swing.JLabel jSenhaUsuario;
     private javax.swing.JList<String> listNomes;
-    private javax.swing.JTextField txtFoneUsuario;
+    private javax.swing.JFormattedTextField txtFoneUsuario;
     private javax.swing.JTextField txtIdUsuario;
     private javax.swing.JTextField txtLoginUsuario;
     private javax.swing.JTextField txtNomeUsuario;
