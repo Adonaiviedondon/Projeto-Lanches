@@ -197,12 +197,14 @@ public class TelaClientes extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jnomeCliente = new javax.swing.JLabel();
+        jBairro = new javax.swing.JLabel();
+        jCidade = new javax.swing.JLabel();
+        jendereço = new javax.swing.JLabel();
+        jCep = new javax.swing.JLabel();
+        jEmail = new javax.swing.JLabel();
         btAtualizar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         btAdicionar = new javax.swing.JButton();
@@ -218,8 +220,15 @@ public class TelaClientes extends javax.swing.JInternalFrame {
         jFormattedFone = new javax.swing.JFormattedTextField();
         idCliente = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        jNumero = new javax.swing.JLabel();
         txtNum = new javax.swing.JTextField();
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
 
         setClosable(true);
         setIconifiable(true);
@@ -228,23 +237,23 @@ public class TelaClientes extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(640, 520));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Nome:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 85, -1, -1));
+        jnomeCliente.setText("Nome:");
+        getContentPane().add(jnomeCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 85, -1, -1));
 
-        jLabel2.setText("Bairro:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 251, -1, -1));
+        jBairro.setText("Bairro:");
+        getContentPane().add(jBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 251, -1, -1));
 
-        jLabel3.setText("Cidade:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 253, -1, -1));
+        jCidade.setText("Cidade:");
+        getContentPane().add(jCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 253, -1, -1));
 
-        jLabel4.setText("Endereço:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 290, -1, -1));
+        jendereço.setText("Endereço:");
+        getContentPane().add(jendereço, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 290, -1, -1));
 
-        jLabel5.setText("CEP:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 211, -1, -1));
+        jCep.setText("CEP:");
+        getContentPane().add(jCep, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 211, -1, -1));
 
-        jLabel6.setText("Email:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 323, -1, -1));
+        jEmail.setText("Email:");
+        getContentPane().add(jEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 323, -1, -1));
 
         btAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/atualizar.png"))); // NOI18N
         btAtualizar.setPreferredSize(new java.awt.Dimension(60, 60));
@@ -328,8 +337,8 @@ public class TelaClientes extends javax.swing.JInternalFrame {
         jLabel8.setText("Id:");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, -1));
 
-        jLabel9.setText("N°");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 292, -1, -1));
+        jNumero.setText("N°");
+        getContentPane().add(jNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 292, -1, -1));
         getContentPane().add(txtNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 289, 133, -1));
 
         setBounds(0, 0, 640, 520);
@@ -365,18 +374,20 @@ public class TelaClientes extends javax.swing.JInternalFrame {
     private javax.swing.JButton btAdicionar;
     private javax.swing.JButton btAtualizar;
     public javax.swing.JTextField idCliente;
+    private javax.swing.JLabel jBairro;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jCep;
+    private javax.swing.JLabel jCidade;
+    private javax.swing.JLabel jEmail;
     private javax.swing.JFormattedTextField jFormattedCep;
     private javax.swing.JFormattedTextField jFormattedFone;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JLabel jNumero;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jendereço;
+    private javax.swing.JLabel jnomeCliente;
     private javax.swing.JList<String> listNomes;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtCidade;

@@ -36,9 +36,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLbData = new javax.swing.JLabel();
         Menu = new javax.swing.JMenuBar();
         cadastro = new javax.swing.JMenu();
-        clientes = new javax.swing.JMenuItem();
+        JMclientes = new javax.swing.JMenuItem();
         jMUsuario = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuCadastro = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
@@ -77,16 +78,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         cadastro.setText("Cadastro");
 
-        clientes.setText("Clientes");
-        clientes.addActionListener(new java.awt.event.ActionListener() {
+        JMclientes.setText("Clientes");
+        JMclientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clientesActionPerformed(evt);
+                JMclientesActionPerformed(evt);
             }
         });
-        cadastro.add(clientes);
+        cadastro.add(JMclientes);
 
         jMUsuario.setText("Usuários");
-        jMUsuario.setEnabled(false);
         jMUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMUsuarioActionPerformed(evt);
@@ -97,12 +97,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Menu.add(cadastro);
 
         jMenu2.setText("Pedidos");
+
+        jMenuItem1.setText("Pedido");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem1);
+
         Menu.add(jMenu2);
 
         jMenu3.setText("Cardapio");
 
         jMenuCadastro.setText("Cadastro");
-        jMenuCadastro.setEnabled(false);
         jMenuCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuCadastroActionPerformed(evt);
@@ -165,12 +173,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientesActionPerformed
+    private void JMclientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMclientesActionPerformed
         TelaClientes clientes = new TelaClientes();
         clientes.setVisible(true);
         jDesktop.add(clientes);
         // TODO add your handling code here:
-    }//GEN-LAST:event_clientesActionPerformed
+    }//GEN-LAST:event_JMclientesActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         Date data = new Date();
@@ -198,6 +206,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         cadastro.setVisible(true);
         jDesktop.add(cadastro);
     }//GEN-LAST:event_jMenuCadastroActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        Pedido pedido = new Pedido();
+        pedido.setVisible(true);
+        jDesktop.add(pedido);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,9 +250,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem JMclientes;
     private javax.swing.JMenuBar Menu;
     private javax.swing.JMenu cadastro;
-    private javax.swing.JMenuItem clientes;
     private javax.swing.JDesktopPane jDesktop;
     private javax.swing.JLabel jLabel1;
     public static javax.swing.JLabel jLabelUsario;
@@ -248,6 +262,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     public static javax.swing.JMenuItem jMenuCadastro;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem sair;
     // End of variables declaration//GEN-END:variables
 }

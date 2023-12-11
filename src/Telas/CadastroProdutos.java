@@ -3,18 +3,28 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package Telas;
+import java.sql.*;
+import ConexaoDB.ModuloConexao;
+import Formatacao.FormatTft;
+import java.awt.HeadlessException;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author tyago
  */
 public class CadastroProdutos extends javax.swing.JInternalFrame {
-
+    Connection conexao = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
     /**
      * Creates new form CadastroProdutos
      */
     public CadastroProdutos() {
         initComponents();
+        
+        
     }
 
     /**
