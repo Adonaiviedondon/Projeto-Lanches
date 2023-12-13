@@ -4,6 +4,7 @@ import java.sql.*;
 import ConexaoDB.ModuloConexao;
 import Formatacao.FormatTft;
 import java.awt.HeadlessException;
+import java.awt.event.KeyEvent;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -231,6 +232,9 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             }
         });
         txtNomeUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNomeUsuarioKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNomeUsuarioKeyReleased(evt);
             }
@@ -351,6 +355,12 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
     private void txtFoneUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFoneUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFoneUsuarioActionPerformed
+
+    private void txtNomeUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeUsuarioKeyPressed
+          if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            jNomes.setVisible(false);
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeUsuarioKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
