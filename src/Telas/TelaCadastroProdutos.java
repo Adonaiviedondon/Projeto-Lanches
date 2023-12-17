@@ -13,6 +13,7 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -57,7 +58,7 @@ public class TelaCadastroProdutos extends javax.swing.JInternalFrame {
                 lblFoto.setIcon(new ImageIcon(foto));
                 lblFoto.updateUI();
 
-            } catch (Exception e) {
+            } catch (IOException e) {
                 System.out.println(e);
             }
         }
@@ -99,13 +100,12 @@ public class TelaCadastroProdutos extends javax.swing.JInternalFrame {
                     txtLanche.setText(rs.getString(2));
                     txtDesc.setText(rs.getString(3));
                     txtValor.setText(rs.getString(4));
-                    Blob blob;
-                    blob = (Blob) rs.getBlob(5);
+                    Blob blob = (Blob) rs.getBlob(5);
                     byte[] img = blob.getBytes(1, (int) blob.length());
                     BufferedImage imagem = null;
                     try {
                         imagem = ImageIO.read(new ByteArrayInputStream(img));
-                    } catch (Exception e) {
+                    } catch (IOException e) {
                         System.out.println(e);
                     }
                     ImageIcon icone = new ImageIcon(imagem);
@@ -198,7 +198,7 @@ public class TelaCadastroProdutos extends javax.swing.JInternalFrame {
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Excluido com sucesso!");
 
-            } catch (Exception e) {
+            } catch (HeadlessException | SQLException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
 
@@ -235,10 +235,10 @@ public class TelaCadastroProdutos extends javax.swing.JInternalFrame {
         btnAdicionar = new javax.swing.JButton();
         btnAtualizar = new javax.swing.JButton();
         btnDeletar = new javax.swing.JButton();
-        lblFoto = new javax.swing.JLabel();
         btnCarregar = new javax.swing.JButton();
         JNomes = new javax.swing.JScrollPane();
         listNomes = new javax.swing.JList<>();
+        lblFoto = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -331,13 +331,6 @@ public class TelaCadastroProdutos extends javax.swing.JInternalFrame {
         });
         getContentPane().add(btnDeletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(535, 381, -1, -1));
 
-        lblFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/camera.png"))); // NOI18N
-        lblFoto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        lblFoto.setMaximumSize(new java.awt.Dimension(128, 128));
-        lblFoto.setMinimumSize(new java.awt.Dimension(128, 128));
-        lblFoto.setPreferredSize(new java.awt.Dimension(128, 128));
-        getContentPane().add(lblFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(448, 165, -1, -1));
-
         btnCarregar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnCarregar.setForeground(new java.awt.Color(102, 102, 255));
         btnCarregar.setText("Carregar foto");
@@ -350,6 +343,9 @@ public class TelaCadastroProdutos extends javax.swing.JInternalFrame {
         });
         getContentPane().add(btnCarregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 217, -1, -1));
 
+        JNomes.setBorder(null);
+
+        listNomes.setBorder(null);
         listNomes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 listNomesMouseClicked(evt);
@@ -358,6 +354,13 @@ public class TelaCadastroProdutos extends javax.swing.JInternalFrame {
         JNomes.setViewportView(listNomes);
 
         getContentPane().add(JNomes, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 395, 100));
+
+        lblFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/camera.png"))); // NOI18N
+        lblFoto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblFoto.setMaximumSize(new java.awt.Dimension(128, 128));
+        lblFoto.setMinimumSize(new java.awt.Dimension(128, 128));
+        lblFoto.setPreferredSize(new java.awt.Dimension(128, 128));
+        getContentPane().add(lblFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(448, 165, -1, -1));
 
         setBounds(0, 0, 640, 520);
     }// </editor-fold>//GEN-END:initComponents
